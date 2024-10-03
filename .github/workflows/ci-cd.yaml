@@ -59,7 +59,7 @@ jobs:
 
       - name: Update kubeconfig
         run: |
-          aws eks update-kubeconfig --region us-east-2 --name movie-eks
+          aws eks update-kubeconfig --region us-east-2 --name ml-api
 
       - name: Deploy to Kubernetes
         run: |
