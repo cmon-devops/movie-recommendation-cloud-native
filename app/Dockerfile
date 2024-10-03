@@ -2,7 +2,7 @@ FROM python:3.9
 
 WORKDIR /app
 
-COPY requirements.txt ./  # Make sure requirements.txt is in the same directory as the Dockerfile
+COPY requirements.txt /app/  # Copy to /app directory
 
 RUN pip install -r requirements.txt
 
