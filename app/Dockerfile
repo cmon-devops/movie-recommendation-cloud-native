@@ -4,8 +4,7 @@ FROM python:3.9
 # Set the working directory
 WORKDIR /app
 
-# Copy the requirements file into the container
-COPY requirements.txt .
+COPY ../requirements.txt .  # Adjust this path accordingly
 
 # Install the dependencies
 RUN pip install -r requirements.txt
