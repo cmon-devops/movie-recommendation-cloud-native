@@ -36,17 +36,16 @@ jobs:
           images: ${{ secrets.ECR_REPOSITORY_URI }}
           tags: |
             latest
-            ${{ github.sha }} 
+            ${{ github.sha }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./app
+          context: ./app  # Correctly pointing to the app directory
           push: true
           tags: |
             ${{ secrets.ECR_REPOSITORY_URI }}:latest
             ${{ secrets.ECR_REPOSITORY_URI }}:${{ github.sha }}
-
 
   deploy:
     runs-on: ubuntu-latest
