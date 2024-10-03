@@ -21,7 +21,9 @@ jobs:
 
       - name: Log in to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
-
+        with:
+          region: us-east-2
+          
       - name: Extract Docker metadata (tags)
         id: meta
         uses: docker/metadata-action@v3
