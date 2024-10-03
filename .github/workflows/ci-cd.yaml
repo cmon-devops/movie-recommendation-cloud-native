@@ -24,7 +24,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2  # Specify the AWS region here
+          aws-region: us-east-2
 
       - name: Log in to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
@@ -35,16 +35,16 @@ jobs:
         with:
           images: ${{ secrets.ECR_REPOSITORY_URI }}
           tags: |
-            latest
-            ${{ github.sha }}
+            latest  # Removed SHA tag
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./app  # Correctly pointing to the app directory
+          context: ./app
           push: true
           tags: |
             ${{ secrets.ECR_REPOSITORY_URI }}:latest
+
 
   deploy:
     runs-on: ubuntu-latest
