@@ -45,7 +45,6 @@ jobs:
           push: true
           tags: |
             ${{ secrets.ECR_REPOSITORY_URI }}:latest
-            ${{ secrets.ECR_REPOSITORY_URI }}:${{ github.sha }}
 
   deploy:
     runs-on: ubuntu-latest
